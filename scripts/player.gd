@@ -7,6 +7,7 @@ extends CharacterBody3D
 var mouse_delta = Vector2.ZERO
 var mousepos = Vector2.ZERO
 var vertical_rotation_of_camera_now = 0.0
+var player_dir = Vector2.ZERO
 
 # Vars speed type
 var sensitivity = 0.1
@@ -41,8 +42,12 @@ func CameraMovment():
 	camera.rotation_degrees.x = vertical_rotation_of_camera_now
 
 func Movment():
+	player_dir.x = cos(camera.rotation_degrees.y)
+	player_dir.y = sin(camera.rotation_degrees.y)
+	
 	if(Input.is_action_pressed("w")):
-		velocity.x = 1 * speed
+		velocity.x = player_dir.x * speed
+		velocity.z = player_dir.y * speed
 	elif(Input.is_action_pressed("s")):
 		velocity.x = -1 * speed
 	elif(Input.is_action_pressed("a")):
