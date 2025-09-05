@@ -12,6 +12,8 @@ var player_dir = Vector3.ZERO
 # Vars speed type
 var sensitivity = 0.1
 var speed = 10
+var jump_velocity = 20
+var player_gravity = 5
 
 
 func _ready() -> void:
@@ -58,5 +60,9 @@ func Movment():
 	
 	velocity.x = player_dir.x * speed
 	velocity.z = player_dir.z * speed
+	
+	if(!is_on_floor()): velocity.y -= 0.1 * player_gravity
+	if(is_on_floor() && Input.is_action_pressed("jump")): velocity.y += jump_velocity
+	if(is_on_ceiling()): velocity.y = 0
 	
 	move_and_slide();
