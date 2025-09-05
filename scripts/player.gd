@@ -8,12 +8,12 @@ var mouse_delta = Vector2.ZERO
 var mousepos = Vector2.ZERO
 var vertical_rotation_of_camera_now = 0.0
 var player_dir = Vector3.ZERO
+var deltat
 
 # Vars speed type
 var sensitivity = 0.1
 var speed = 10
 var jump_velocity = 20
-var player_gravity = 5
 
 
 func _ready() -> void:
@@ -22,6 +22,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	deltat = get_process_delta_time()
+	
 	# Get mousepos based on mouse_delta
 	mousepos += mouse_delta
 	
@@ -61,7 +63,7 @@ func Movment():
 	velocity.x = player_dir.x * speed
 	velocity.z = player_dir.z * speed
 	
-	if(!is_on_floor()): velocity.y -= 0.1 * player_gravity
+	if(!is_on_floor()): velocity.y += get_gravity().y * deltat * 10
 	if(is_on_floor() && Input.is_action_pressed("jump")): velocity.y += jump_velocity
 	if(is_on_ceiling()): velocity.y = 0
 	
