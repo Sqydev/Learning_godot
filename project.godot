@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="THINGIFINGI"
-run/main_scene="uid://fprx1l0siyp0"
+run/main_scene="uid://bo35k6a6uyj5s"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
