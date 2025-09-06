@@ -27,3 +27,9 @@ transform = Transform3D(1, 0, 0, 0, 0.698977, 0.715144, 0, -0.715144, 0.698977, 
 
 [node name="Wanderer" parent="." instance=ExtResource("2_bwv4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.23332, 12.7496)
+
+[node name="Wanderer2" parent="." instance=ExtResource("2_bwv4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1261, 2.31158, -5.1531)
+
+[node name="Wanderer3" parent="." instance=ExtResource("2_bwv4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.191, 2.31158, 2.68485)

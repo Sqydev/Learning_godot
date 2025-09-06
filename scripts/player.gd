@@ -57,6 +57,9 @@ func Movment():
 	if(Input.is_action_pressed("d")):
 		player_dir.x += 1
 	
+	if(Input.is_action_just_pressed("sprint")): speed *= 2
+	elif(Input.is_action_just_released("sprint")): speed /= 2
+	
 	player_dir = player_dir.normalized()
 	player_dir = global_transform.basis * player_dir
 	
